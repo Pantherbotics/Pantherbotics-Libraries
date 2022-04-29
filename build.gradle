@@ -1,12 +1,16 @@
 import edu.wpi.first.gradlerio.deploy.roborio.RoboRIO
 
 plugins {
-    id "java"
-    id "edu.wpi.first.GradleRIO" version "2022.4.1"
+    id 'java'
+    id "edu.wpi.first.GradleRIO"
 }
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+group 'com.pantherbotics'
+version '0.1.0'
+
+repositories {
+    mavenCentral()
+}
 
 def ROBOT_MAIN_CLASS = "frc.robot.Main"
 
@@ -19,7 +23,7 @@ deploy {
             // or from command line. If not found an exception will be thrown.
             // You can use getTeamOrDefault(team) instead of getTeamNumber if you
             // want to store a team number in this file.
-            team = project.frc.getTeamNumber()
+            team = project.frc.getTeamOrDefault(3863)
             debug = project.frc.getDebugOrDefault(false)
 
             artifacts {
@@ -47,9 +51,10 @@ wpi.java.debugJni = false
 // Set this to true to enable desktop support.
 def includeDesktopSupport = false
 
-// Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
-// Also defines JUnit 4.
 dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
 
@@ -87,3 +92,7 @@ jar {
 deployArtifact.jarTask = jar
 wpi.java.configureExecutableTasks(jar)
 wpi.java.configureTestTasks(test)
+
+test {
+    useJUnitPlatform()
+}

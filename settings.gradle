@@ -24,4 +24,7 @@ pluginManagement {
             url frcHomeMaven
         }
     }
+    plugins {
+        id 'edu.wpi.first.GradleRIO' version "2022.4.1"
+    }
 }
