@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
  * The PID class wraps PIDF, allowedError and maxPower variables
  * It also contains a static method to create a WPI_TalonFX using PID settings
  */
+@SuppressWarnings("unused")
 public class PID {
     public final double kP;
     public final double kI;

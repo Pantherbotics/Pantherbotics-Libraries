@@ -15,6 +15,7 @@ import java.util.List;
  *   .whenReleased(Command command) - Schedules a command to be run once the joystick axis is released
  *   .get() - Returns a boolean for joystick isPressed
  */
+@SuppressWarnings("unused")
 public class JoystickAxisToButton {
     private final Joystick joystick;
     private final int axis;
