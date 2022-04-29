@@ -17,4 +17,8 @@ git {
     }
 }
 ```
-5. Check that the string after commit is up to date ('9b23110'). On the main page of this repository you should see the latest code. Near the top of the files panel, to the left of the timestamp of the last commit and the previous commits, there will be the commit id. Copy that to your project if it's not up to date.
+5. Check that the string after commit is up to date ('9b23110'). The commit id is located in the image in the red box.
+Every time there is another commit, this id will change and you'll need to update build.gradle to get the latest version. For instance, committing this readme created a new id 'e03ccd9'.
+
+![On the main page of this repository you should see the latest code. Near the top of the files panel, to the left of the timestamp of the last commit and the previous commits, there will be the commit id. Copy that to your project if it's not up to date.](https://i.imgur.com/53oLKES.png)
+
